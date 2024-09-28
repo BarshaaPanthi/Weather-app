@@ -1,0 +1,228 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to bottom, #8acffa, #B0E0E6); /* Sky blue gradient */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.weather-app {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+  transition: transform 0.2s;
+}
+
+.weather-app:hover {
+  transform: scale(1.02);
+}
+
+.search-box {
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  padding: 10px;
+  width: 70%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s;
+}
+
+input[type="text"]:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.weather-result {
+  display: none; /* Hidden by default, displayed dynamically */
+  margin-top: 20px;
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  transition: transform 0.4s ease, opacity 0.4s ease; /* Smooth transformation */
+}
+
+/* Display the weather result with animation */
+.weather-result.active {
+  display: block;
+  transform: translateY(0); /* Slide in effect */
+  opacity: 1;
+}
+
+.weather-result.inactive {
+  transform: translateY(20px); /* Slide out effect */
+  opacity: 0;
+}
+
+.weather-result h2 {
+  margin: 0;
+  font-size: 32px; /* Slightly larger for a mobile app look */
+  color: #222; /* Darker text for contrast */
+  font-weight: bold;
+}
+
+.weather-result p {
+  margin: 8px 0; /* Space between paragraphs */
+  color: #555;
+  font-size: 18px; /* Larger text for readability on mobile */
+}
+
+.weather-icon {
+  width: 120px; /* Bigger icons for better visibility */
+  margin: 20px 0;
+  animation: pulse 1.5s infinite; /* Pulsing animation for a lively feel */
+}
+
+/* Pulsing animation for weather icons */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Animation for weather result display */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px); /* Starts 20px lower */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* Moves to original position */
+  }
+}
+
+.weather-result {
+  animation: fadeInUp 0.6s ease-in-out; /* Smooth fade-in and upward movement */
+}
+
+/* Updated Background Gradients for Realistic Colors */
+/* Sunny Weather */
+.sunny {
+  background: linear-gradient(135deg, #FFD700, #FFDD00); /* Proper bright yellow gradient for sun */
+  color: #222; /* Dark text for contrast */
+}
+
+.sunny .weather-icon {
+  filter: drop-shadow(0 0 10px rgba(255, 223, 0, 0.7)); /* Sun glow effect */
+}
+
+/* Rainy Weather */
+.rainy {
+  background: linear-gradient(135deg, #4A90E2, #007BFF); /* Dark blue gradient */
+  color: #fff; /* White text for contrast */
+}
+
+.rainy .weather-icon {
+  filter: drop-shadow(0 0 10px rgba(173, 216, 230, 0.7)); /* Raindrop glow */
+}
+
+/* Cloudy Weather with Sky Blue Clouds */
+.cloudy {
+  background: linear-gradient(135deg, #67c0f7, #5ae0f1); /* Sky blue gradient for clouds */
+  color: #333; /* Darker text for contrast */
+}
+
+.cloudy .weather-icon {
+  filter: drop-shadow(0 0 10px rgba(135, 179, 238, 0.7)); /* Soft cloud glow */
+}
+
+
+.weather-result.inactive {
+  transform: translateY(20px); 
+  opacity: 0;
+}
+
+.weather-result h2 {
+  margin: 0;
+  font-size: 45px; 
+  color: #222; /* Darker text for contrast */
+  font-weight: bold;
+}
+
+.weather-result p {
+  margin: 8px 0; 
+  color: #3b3b3b;
+  font-size: 20px; /* Larger text for readability on mobile */
+}
+
+.weather-icon {
+  width: 120px; 
+  margin: 20px 0;
+  color: #67c0f7;
+  animation: pulse 1.5s infinite; 
+}
+
+/* animation for weather icons */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Animation for weather result display */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px); 
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); 
+  }
+}
+
+.weather-result {
+  animation: fadeInUp 0.6s ease-in-out; 
+}
+
+/* Background gradient adjustments  */
+.sunny {
+  background: linear-gradient(135deg, #f0b938, #FFDD00); /* Bright yellow gradient */
+}
+
+.rainy {
+  background: linear-gradient(135deg, #83b2e7, #89b4e2); /* Dark blue gradient */
+}
+
+.cloudy {
+  background: linear-gradient(135deg, #B0BEC5, #90A4AE); /* Soft greyish gradient */
+}
+
